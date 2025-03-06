@@ -1,19 +1,20 @@
 "use client";
 
-import { 
-  FaPhoneAlt, 
-  FaEnvelope, 
-  FaFacebookF, 
-  FaTwitter, 
-  FaLinkedinIn, 
-  FaGooglePlusG, 
-  FaBehance, 
-  FaDribbble, 
-  FaBars, 
-  FaTimes 
+import {
+  FaPhoneAlt,
+  FaEnvelope,
+  FaFacebookF,
+  FaTwitter,
+  FaLinkedinIn,
+  FaGooglePlusG,
+  FaBehance,
+  FaDribbble,
+  FaBars,
+  FaTimes
 } from "react-icons/fa";
 import { useState } from "react";
 import ScrollToTop from "./ScrollUp";
+import Link from "next/link";
 
 export default function TopBar1() {
   const [isOpen, setIsOpen] = useState(false);
@@ -49,11 +50,23 @@ export default function TopBar1() {
         <div className="left-0 w-full z-50 bg-white shadow-md">
           <nav className="w-full py-4 px-6 md:px-10 flex justify-between items-center">
             {/* Logo */}
-            <h1 className="text-2xl font-bold text-green-600">MADE</h1>
+            <Link href="/" >
+              <h1 className="text-2xl font-bold text-green-600">MADE</h1>
+            </Link>
+           
 
             {/* Menu Items (Desktop) */}
             <ul className="hidden md:flex md:items-center md:space-x-6">
-              <li><a href="#" className="text-gray-700 hover:text-green-600">Home</a></li>
+            <li>
+                <Link href="/" className="text-gray-700 hover:text-green-600">
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link href="/about" className="text-gray-700 hover:text-green-600">
+                  About
+                </Link>
+              </li>
               <li><a href="#" className="text-gray-700 hover:text-green-600">Service</a></li>
               <li><a href="#" className="text-gray-700 hover:text-green-600">Past Projects</a></li>
               <li><a href="#" className="text-gray-700 hover:text-green-600">Videos</a></li>
@@ -75,13 +88,20 @@ export default function TopBar1() {
 
           {/* Mobile Menu (Dropdown) */}
           <div
-            className={`relative left-0 w-full bg-white shadow-md z-50 transition-all duration-300 ease-in-out ${
-              isOpen ? "opacity-100 visible h-auto" : "opacity-0 invisible h-0"
-            } md:hidden`}
+            className={`relative left-0 w-full bg-white shadow-md z-50 transition-all duration-300 ease-in-out ${isOpen ? "opacity-100 visible h-auto" : "opacity-0 invisible h-0"
+              } md:hidden`}
           >
             <ul className="flex flex-col text-center">
-              <li className="py-3 "><a href="#" className="text-gray-700 hover:text-green-600">Home</a></li>
-              <li className="py-3 "><a href="#" className="text-gray-700 hover:text-green-600">Service</a></li>
+            <li>
+                <Link href="/" className="text-gray-700 hover:text-green-600 ">
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link href="/about" className="text-gray-700 hover:text-green-600">
+                  About
+                </Link>
+              </li>
               <li className="py-3 "><a href="#" className="text-gray-700 hover:text-green-600">Past Projects</a></li>
               <li className="py-3 "><a href="#" className="text-gray-700 hover:text-green-600">Videos</a></li>
               <li className="py-3 "><a href="#" className="text-gray-700 hover:text-green-600">Company</a></li>
@@ -91,12 +111,12 @@ export default function TopBar1() {
         </div>
 
 
-      
-     
 
-      {/* Scroll to Top Button */}
-      <ScrollToTop />
-   
+
+
+        {/* Scroll to Top Button */}
+        <ScrollToTop />
+
 
 
       </div>
